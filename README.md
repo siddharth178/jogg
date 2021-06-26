@@ -1,10 +1,7 @@
-## jogging tracker
+# jogg
+This is an attempt to write REST API that tracks jogging times of users and also tried to fetch corresponding weather information.
 
-
-#### requirements
-The requirements for the test project are:
-Write a REST API that tracks jogging times of users
-
+Here are some of the requirements I am running with
 * API Users must be able to create an account and log in.
 * All API calls must be authenticated.
 * Implement at least three roles with different permission levels: a regular user would only be able to CRUD on their owned records, a user manager would be able to CRUD only users, and an admin would be able to CRUD all records and users.
@@ -16,5 +13,3 @@ Write a REST API that tracks jogging times of users
 * The API filtering should allow using parenthesis for defining operations precedence and use any combination of the available fields. * The supported operations should at least include or, and, eq (equals), ne (not equals), gt (greater than), lt (lower than).
   * Example -> (date eq '2016-05-01') AND ((distance gt 20) OR (distance lt 10)).
 * REST API. Make it possible to perform all user and admin actions via the API, including authentication.
-* In any case, you should be able to explain how a REST API works and demonstrate that by creating functional tests that use the REST Layer directly. Please be prepared to use REST clients like Postman, cURL, etc. for this purpose.
-* Write unit and e2e tests.
