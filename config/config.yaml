@@ -1,0 +1,12 @@
+http:
+  port: 8888
+  secret: "secret"
+log:
+  level: "debug"
+  encoding: "json"
+db:
+  databaseURL: "postgres://jogg:jogg@localhost:5432/jogg?sslmode=disable"
+weather:
+  mock: true
+  apiKey: "5d01143eb3cc9a0a92ca918fbe52efb0"
+  file: "in.loc.csv"

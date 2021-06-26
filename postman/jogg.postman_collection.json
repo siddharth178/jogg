@@ -1,0 +1,590 @@
+{
+	"variables": [],
+	"info": {
+		"name": "jogg",
+		"_postman_id": "f54f5eb9-4115-689c-f763-04a10c6cd2cd",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login admin",
+			"request": {
+				"url": "localhost:8888/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"admin@jogg.in\", \"password\":\"passwd\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Login user",
+			"request": {
+				"url": "localhost:8888/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"self@jogg.in\", \"password\":\"self\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserByID as admin",
+			"request": {
+				"url": "localhost:8888/users/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllUsers",
+			"request": {
+				"url": {
+					"raw": "localhost:8888/users?page_rows=3&page=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "page_rows",
+							"value": "3",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserByID as user",
+			"request": {
+				"url": "localhost:8888/users/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{user_token}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "AddUser",
+			"request": {
+				"url": "localhost:8888/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"bbb@jogg.in\", \"password\":\"bbb\", \"name\":\"bbb\", \"role\":\"user\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUser as admin",
+			"request": {
+				"url": "localhost:8888/users/4",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"bbb77@jogg.in\", \"password\":\"bbb\", \"name\":\"bbb\", \"role\":\"user\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUser as admin",
+			"request": {
+				"url": "localhost:8888/users/4",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"bbb77@jogg.in\", \"password\":\"bbb\", \"name\":\"bbb\", \"role\":\"user\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "AddUser w/o jwt",
+			"request": {
+				"url": "localhost:8888/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"s@jogg.in\", \"password\":\"s\", \"name\":\"s\", \"role\":\"user\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"url": "localhost:8888/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"self@jogg.in\", \"password\":\"self\", \"name\":\"self\", \"role\":\"user\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Register Fail for admin",
+			"request": {
+				"url": "localhost:8888/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"self@jogg.in\", \"password\":\"self\", \"name\":\"self\", \"role\":\"admin\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "AddActivity one",
+			"request": {
+				"url": "localhost:8888/users/2/activities",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{user_token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\"ts\":\"2021-04-06T11:46:00+05:30\", \"loc\":\"Pune\", \"distance\":4500, \"seconds\": 3600}\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "AddActivity many",
+			"request": {
+				"url": "localhost:8888/users/2/activities",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{user_token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\"ts\":\"2021-06-03T13:43:04+00:00\", \"loc\":\"Pune\", \"distance\":4500, \"seconds\": 3600},\n\t{\"ts\":\"2021-05-28T13:43:04+00:00\", \"loc\":\"Mumbai\", \"distance\":3500, \"seconds\": 3000},\n\t{\"ts\":\"2021-05-25T13:43:04+00:00\", \"loc\":\"Delhi\", \"distance\":1500, \"seconds\": 2000},\n\t{\"ts\":\"2021-05-12T13:43:04+00:00\", \"loc\":\"Nagpur\", \"distance\":500, \"seconds\": 1000},\n\t{\"ts\":\"2021-05-10T13:43:04+00:00\", \"loc\":\"Banglore\", \"distance\":5500, \"seconds\": 4500},\n\t{\"ts\":\"2021-04-06T11:46:00+05:30\", \"loc\":\"Pune\", \"distance\":4500, \"seconds\": 3600}\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "AddActivity as admin",
+			"request": {
+				"url": "localhost:8888/users/2/activities",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"ts\":\"2021-06-02T13:43:04+00:00\", \"loc\":\"Pune\", \"distance\":3500}]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetActivityByID as user",
+			"request": {
+				"url": "localhost:8888/users/2/activities/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{user_token}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetActivityByID as admin",
+			"request": {
+				"url": "localhost:8888/users/1/activities/3",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteActivityByID as user",
+			"request": {
+				"url": "localhost:8888/users/2/activities/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{user_token}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateActivityByID as user",
+			"request": {
+				"url": "localhost:8888/users/2/activities",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{user_token}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":4, \"ts\":\"2021-06-04T14:43:04+00:00\", \"loc\":\"Pune\", \"distance\":5000}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetActivities as user",
+			"request": {
+				"url": {
+					"raw": "localhost:8888/users/2/activities?page=1&page_rows=10",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"users",
+						"2",
+						"activities"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "page_rows",
+							"value": "10",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{user_token}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetActivities as user with conditions",
+			"request": {
+				"url": {
+					"raw": "localhost:8888/users/2/activities?query=(distance GT 4000) AND (seconds GT 4000)&page=1&page_rows=10",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"users",
+						"2",
+						"activities"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "(distance GT 4000) AND (seconds GT 4000)",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "page_rows",
+							"value": "10",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{user_token}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetActivities as user with pagination",
+			"request": {
+				"url": {
+					"raw": "localhost:8888/users/2/activities?page_rows=2&page=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"users",
+						"2",
+						"activities"
+					],
+					"query": [
+						{
+							"key": "page_rows",
+							"value": "2",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{user_token}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Weekly report as user",
+			"request": {
+				"url": {
+					"raw": "localhost:8888/reports/2/weekly?page_rows=10&page=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"reports",
+						"2",
+						"weekly"
+					],
+					"query": [
+						{
+							"key": "page_rows",
+							"value": "10",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{user_token}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
